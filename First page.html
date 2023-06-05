@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student ID Card</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@900&family=Inter:wght@300;400;500;600&family=Poppins:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="/static/ensias med v for website.png" alt="logo ensias med v" class="logo">
+        <div class="frame1">
+                <h2>PFA Project</h2>
+                <h1>Recognition of photos on a student<br>ID card using Deep Learning.</h1>
+        </div>
+        <div class="nav">
+            <a class="About">
+                About Us
+            </a>
+            <button class="Work">
+                How It Works?
+            </button>
+        </div>
+    </header>
+    <section>
+        <h2>
+            Easily make sure your Student Card is compatible<br>with the data present in the database.
+        </h2>
+        <form action="/", method="POST" enctype="multipart/form-data">
+            <input type="file" class="upload" name="imagefile" value="Upload your Student Card"/>
+            <input class="submit" type="submit" value="Predict Image">
+        </form>
+
+        {% if prediction %}
+            <p>Prediction result : {{prediction}}</p>
+        {% endif %}
+    </section>
+</body>
+</html>
